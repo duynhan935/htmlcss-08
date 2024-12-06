@@ -12,9 +12,13 @@ html {
 
     @include abstracts.breakpoint(lg) {
         --header-bg: #fff;
+        --header-shadow: rgba(237, 237, 246, 0.2);
     }
 
     // Dropdown
     --dropdown-bg: #fff;
     --dropdown-shadow: rgba(200, 200, 200, 0.4);
+    --top-menu-border: #D2D1D6;
+    --menu-colunm-heading: #1A162E;
+    --menu-colunm-link: #1A162E;
 }

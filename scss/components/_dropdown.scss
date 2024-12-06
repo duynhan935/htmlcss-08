@@ -1,15 +1,19 @@
 .dropdown {
     position: absolute;
     left: 0;
+
+    width: min(1240px, 100%);
     padding-top: 54px;
-    display: none;
+    // display: none;
 
     &__inner {
+        --inner-padding: 30px;
+
         position: relative;
         border-radius: 20px;
         background: var(--dropdown-bg);
         box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
-        padding: 30px 62px 30px 30px;
+        padding: var(--inner-padding);
 
         &::before {
             content: url(../icons/dropdown-arrow.svg);
@@ -20,4 +24,102 @@
             filter: var(--dropdown-arrow-color);
         }
     }
+}
+
+.top-menu {
+    position: relative;
+    --main-colunm-width: 292px;
+
+    &__main {
+        height: calc(
+            min(582px, 100vh - 158px) - var(--inner-padding) * 2
+        ); // đặt lại để cho chiều dài của nó sẽ nằm gọn trong thằng inner, trừ 60 vì cái inner padding trên dưới 30px, 158px là tính cái header + với 54px padding
+        width: var(--main-colunm-width);
+        border-right: 1px solid var(--top-menu-border);
+        overflow-y: auto;
+    }
+}
+
+.menu-colunm {
+    display: flex;
+    column-gap: 14px;
+
+    + .menu-colunm {
+        margin-top: var(
+            --inner-padding
+        ); // tác động vào những menu-colunm nằm sau 1 menu-colunm khác
+    }
+
+    &__icon {
+        flex-shrink: 0; // để khi nội dung của phần bên phải quá nhiều thì cái icon không bị méo
+        width: 36px;
+        height: 36px;
+        position: relative;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__icon-1 {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+    }
+
+    &__icon-2 {
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        filter: var(--menu-colunm-icon);
+    }
+
+    &__heading {
+        color: var(--menu-colunm-heading);
+        margin-top: 4px;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 150%;
+    }
+
+    &__list {
+        margin-top: 19px; // 26px - 7px của padding của thằng link đầu tiên
+    }
+
+    &__item {
+        &:hover .sub-menu {
+            display: grid;
+        }
+    }
+
+    &__item:hover > &__link { // tác động vào thẻ link cấp 1 
+        color: #0071dc;
+        font-weight: 500;
+    }
+
+    &__link {
+        color: var(--menu-colunm-heading);
+        padding: 7px 0;
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 142.857%;
+    }
+
+    &__link:last-of-type {
+        padding-bottom: -7px;
+    }
+}
+
+.sub-menu {
+    position: absolute;
+    inset: 0 0 0 var(--main-colunm-width);
+    padding-left: var(--inner-padding);
+    gap: var(--inner-padding);
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-y: auto;
 }
