@@ -1,10 +1,11 @@
+@use "../abstracts";
 .dropdown {
     position: absolute;
     left: 0;
 
     width: min(1240px, 100%);
     padding-top: 54px;
-    // display: none;
+    display: none;
 
     &__inner {
         --inner-padding: 30px;
@@ -29,25 +30,24 @@
 .top-menu {
     position: relative;
     --main-colunm-width: 292px;
+    --max-inner-height: calc(
+        min(582px, 100vh - 158px) - var(--inner-padding) * 2
+    );
 
     &__main {
-        height: calc(
-            min(582px, 100vh - 158px) - var(--inner-padding) * 2
-        ); // đặt lại để cho chiều dài của nó sẽ nằm gọn trong thằng inner, trừ 60 vì cái inner padding trên dưới 30px, 158px là tính cái header + với 54px padding
+        height: var(--max-inner-height); // đặt lại để cho chiều dài của nó sẽ nằm gọn trong thằng inner, trừ 60 vì cái inner padding trên dưới 30px, 158px là tính cái header + với 54px padding
         width: var(--main-colunm-width);
         border-right: 1px solid var(--top-menu-border);
         overflow-y: auto;
     }
 }
 
-.menu-colunm {
+.menu-column {
     display: flex;
     column-gap: 14px;
 
-    + .menu-colunm {
-        margin-top: var(
-            --inner-padding
-        ); // tác động vào những menu-colunm nằm sau 1 menu-colunm khác
+    + .menu-column {
+        margin-top: 22px; // tác động vào những menu-column nằm sau 1 menu-column khác
     }
 
     &__icon {
@@ -55,6 +55,10 @@
         width: 36px;
         height: 36px;
         position: relative;
+
+        @include abstracts.breakpoint(xl) {
+            display: none;
+        }
     }
 
     &__content {
@@ -64,21 +68,21 @@
     &__icon-1 {
         width: 30px;
         height: 30px;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     &__icon-2 {
         width: 24px;
         height: 24px;
-        object-fit: cover;
+        object-fit: contain;
         position: absolute;
         right: 0;
         bottom: 0;
-        filter: var(--menu-colunm-icon);
+        filter: var(--menu-column-icon);
     }
 
     &__heading {
-        color: var(--menu-colunm-heading);
+        color: var(--menu-column-heading);
         margin-top: 4px;
         font-size: 1.6rem;
         font-weight: 500;
@@ -90,27 +94,25 @@
     }
 
     &__item {
-        &:hover .sub-menu {
+        &--active .sub-menu {
             display: grid;
         }
     }
 
-    &__item:hover > &__link { // tác động vào thẻ link cấp 1 
+    &__item--active > &__link,
+    &__item:hover > &__link {
+        // tác động vào thẻ link cấp 1
         color: #0071dc;
         font-weight: 500;
     }
 
     &__link {
-        color: var(--menu-colunm-heading);
+        color: var(--menu-column-heading);
         padding: 7px 0;
         display: block;
         font-size: 1.4rem;
         font-weight: 400;
         line-height: 142.857%;
-    }
-
-    &__link:last-of-type {
-        padding-bottom: -7px;
     }
 }
 
@@ -122,4 +124,13 @@
     display: none;
     grid-template-columns: repeat(3, 1fr);
     overflow-y: auto;
+
+    &--not-main {
+        position: initial;
+        display: grid;
+        inset: initial;
+        grid-template-columns: repeat(4, 1fr);
+        height: var(--max-inner-height); // giới hạn chiều cao để nó xuất hiện thanh cuộn khi chiều dài bị thu nhỏ
+        padding-left: 0;
+    }
 }
