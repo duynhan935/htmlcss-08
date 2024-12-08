@@ -1,7 +1,7 @@
 <div class="container">
     <div class="top_bar">
         <!-- More -->
-        <button class="top_bar__more">
+        <button class="top_bar__more js-toggle" toggle-target="#navbar">
             <img src="./assets/icons/more.svg" alt="top-bar__icon" class="icon top-bar__icon" />
         </button>
 
@@ -13,7 +13,11 @@
         </a>
 
         <!-- Navbar -->
-        <navbar class="navbar">
+        <navbar class="navbar hide" id="navbar">
+            <button class="navbar__close--btn js-toggle" toggle-target="#navbar">
+                <img src="./assets/icons/arrow-left.svg" alt="">
+            </button>
+
             <ul class="navbar__list js-dropdown-list">
                 <li class="navbar__item">
                     <a href="#!" class="navbar__link">
@@ -4224,29 +4228,19 @@
                                                 </h2>
                                                 <ul class="menu-column__list">
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Wall Art
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Wall Art </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Vases
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Vases </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Light Fixtures
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Light Fixtures </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Curtains
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Curtains </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Carpets
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Carpets </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4272,29 +4266,19 @@
                                                 </h2>
                                                 <ul class="menu-column__list">
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Office Chairs
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Office Chairs </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Desks
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Desks </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Cabinets
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Cabinets </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Meeting Tables
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Meeting Tables </a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">
-                                                            Bookcases
-                                                        </a>
+                                                        <a href="#!" class="menu-column__link"> Bookcases </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4319,8 +4303,16 @@
                                         <!-- Menu column 1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate1.1.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate1.2.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate1.1.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate1.2.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4357,8 +4349,16 @@
                                         <!-- Menu column 2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate2.1.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate1.2.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate2.1.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate1.2.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4366,7 +4366,9 @@
                                                 </h2>
                                                 <ul class="menu-column__list">
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Trending Beauty Products</a>
+                                                        <a href="#!" class="menu-column__link"
+                                                            >Trending Beauty Products</a
+                                                        >
                                                     </li>
                                                     <li class="menu-column__item">
                                                         <a href="#!" class="menu-column__link">Celebrate Earth Day</a>
@@ -4378,7 +4380,9 @@
                                                         <a href="#!" class="menu-column__link">Summer Beauty</a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Travel Size &amp; Minis</a>
+                                                        <a href="#!" class="menu-column__link"
+                                                            >Travel Size &amp; Minis</a
+                                                        >
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4389,8 +4393,16 @@
                                         <!-- Menu column 1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate2.4.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate2.4.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate2.4.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate2.4.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4419,7 +4431,9 @@
                                                         <a href="#!" class="menu-column__link">Pies</a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Cookies &amp; Brownies</a>
+                                                        <a href="#!" class="menu-column__link"
+                                                            >Cookies &amp; Brownies</a
+                                                        >
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4428,8 +4442,16 @@
                                         <!-- Menu column 2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate2.6.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate2.7.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate2.6.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate2.7.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4454,8 +4476,16 @@
                                         <!-- Menu column 1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate2.8.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate2.9.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate2.8.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate2.9.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4481,7 +4511,9 @@
                                                         <a href="#!" class="menu-column__link">Makeup</a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Beauty Tech &amp; Tools</a>
+                                                        <a href="#!" class="menu-column__link"
+                                                            >Beauty Tech &amp; Tools</a
+                                                        >
                                                     </li>
                                                 </ul>
                                             </div>
@@ -4492,8 +4524,16 @@
                                         <!-- Menu column 1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__icon">
-                                                <img src="./assets/img/category/cate2.1.svg" alt="" class="menu-column__icon-1">
-                                                <img src="./assets/img/category/cate2.2.svg" alt="" class="menu-column__icon-2">
+                                                <img
+                                                    src="./assets/img/category/cate2.1.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-1"
+                                                />
+                                                <img
+                                                    src="./assets/img/category/cate2.2.svg"
+                                                    alt=""
+                                                    class="menu-column__icon-2"
+                                                />
                                             </div>
                                             <div class="menu-column__content">
                                                 <h2 class="menu-column__heading">
@@ -4510,7 +4550,9 @@
                                                         <a href="#!" class="menu-column__link">Bath &amp; Body</a>
                                                     </li>
                                                     <li class="menu-column__item">
-                                                        <a href="#!" class="menu-column__link">Beauty Tech &amp; Tools</a>
+                                                        <a href="#!" class="menu-column__link"
+                                                            >Beauty Tech &amp; Tools</a
+                                                        >
                                                     </li>
                                                     <li class="menu-column__item">
                                                         <a href="#!" class="menu-column__link">Makeup</a>
@@ -4541,6 +4583,8 @@
                 </li>
             </ul>
         </navbar>
+
+        <div class="navbar__overlay js-toggle" toggle-target="#navbar"></div>
 
         <!-- Actions -->
         <div class="top-act">

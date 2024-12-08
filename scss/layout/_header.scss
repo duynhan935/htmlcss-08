@@ -45,16 +45,53 @@
     }
 
     @include abstracts.breakpoint(lg) {
+        position: fixed;
+        background: #fff;
+        inset: 0 50% 0 0;
+        margin-left: 0;
+        z-index: 9;
+        padding: 20px 0;
+        translate: -100%;
+        transition: translate 0.5s;
+
+        &.show {
+            translate: 0;
+        }
+
+        &.show ~ &__overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__close--btn {
         display: none;
+        @include abstracts.breakpoint(lg) {
+            display: block;
+            padding: 10px 40px;
+        }
     }
 
     &__list {
         @extend %flexItemCenter;
+
+        @include abstracts.breakpoint(lg) {
+            flex-direction: column; // cho nó thành hàng dọc
+            align-items: flex-start; // cho nó qua trái
+        }
     }
 
     &__item {
         &:hover .dropdown {
             display: block;
+        }
+
+        @include abstracts.breakpoint(lg) {
+            width: 100%;
+
+            &:hover .dropdown {
+                display: none;
+            }
         }
     }
 
@@ -67,10 +104,34 @@
         align-items: center;
         height: 50px;
         padding: 0 15px;
+
+        @include abstracts.breakpoint(lg) {
+            padding: 0 40px;
+            font-size: 1.6rem;
+            line-height: 150%;
+
+            justify-content: space-between;
+        }
     }
 
     &__arrow {
         margin-top: 3px;
+    }
+
+    &__overlay {
+        visibility: hidden;
+        opacity: 0;
+        // dùng hai cái này thay cho display none để khi thêm animation cho nó hiện lên thì mượt hơn
+
+        @include abstracts.breakpoint(lg) {
+            position: fixed;
+            inset: 0;
+            z-index: 8;
+            background: rgba($color: #000000, $alpha: 0.4);
+
+            transition: opacity, visibility;
+            transition-duration: 0.5s;
+        }
     }
 }
 
